@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira sans', sans-serif;
+}
+
+body{
+    /*height: 100vh;*/
+    /*background-image: url("/public/images/index.jpeg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    /*font-family: 'Nunito', sans-serif;*/
+
+}
+
+.sidebar {
+    width: 100px;
+    height: 100%;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background: rgba(10, 10, 10, .65);
+    box-shadow: 0 8px 32px rgb(2, 4, 24);
+    border-right: 2px solid rgba(255, 255, 255, .09);
+}
+
