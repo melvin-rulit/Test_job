@@ -15,8 +15,7 @@
                     </div>
                     <div class="form-group">
                         <label>Phone number</label>
-<!--                        <input v-mask="'+(#)-##-###-#####'" label="tel" v-model="form.tel" class="form-control">-->
-                        <input v-model="form.phone_number" class="form-control">
+                        <input v-mask="'+38 (0##)-###-##-##'" label="tel" v-model="form.phone_number" placeholder="+380" class="form-control">
                     </div>
 
                     <button class="btn btn-primary w-100" @click="onRegister">Register</button>

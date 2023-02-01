@@ -26,4 +26,11 @@ class Client extends Model
         'updated_at',
     ];
 
+    public function feellocky(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+
+        return $this->hasMany(FeelLocky::class);
+//        return $this->hasMany(FeelLocky::class)->latest()->limit(5)->get();
+    }
+
 }

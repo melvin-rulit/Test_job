@@ -26,6 +26,7 @@
         "bootstrap-vue-3": "^0.4.11",
         "epic-spinners": "^2.0.0",
         "vue-router": "^4.1.6",
+        "vue-the-mask": "^0.11.1",
         "vuex": "^4.0.2"
     }
 }

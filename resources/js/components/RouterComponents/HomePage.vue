@@ -1,22 +1,33 @@
 <template>
 
-    <div class="container-fluid d-flex h-100  align-items-center main_container">
+    <div class="container-fluid d-flex h-100  align-items-center">
 
-        <div class="row bg-white ">
+        <div class="row otstup_row">
 
             <div class="col border rounded p-4 otstup_button">
-                <b-button variant="secondary" class="otstup" @click="copyToClipBoard(link)">Копировать ссылку</b-button>
-                <b-button variant="secondary" class="otstup" @click="Generate_new_link(link)">Сгенерировать новую</b-button>
-                <b-button variant="secondary" class="otstup" @click="DeleteLink()">Деактивировать текущую</b-button>
-                <b-button variant="secondary">Im feeling lock</b-button>
+                <b-button variant="secondary" class="otstup" @click="copyToClipBoard(link)">Копировать ссылку в буфер
+                </b-button>
+
+                <router-link :to="{name:'GenerateLink', query: {link}}" class="otstup">
+                    <b-button variant="secondary">Сгенерировать новую ссылку</b-button>
+                </router-link>
+
+                <router-link :to="{name:'DeleteLink', query: {link}}" class="otstup">
+                    <b-button variant="secondary">Деактивировать текущую ссылку</b-button>
+                </router-link>
+
+                <router-link :to="{name:'FeelingLock', query: {link}}" class="otstup">
+                    <b-button variant="secondary">Im feeling locky</b-button>
+                </router-link>
+
             </div>
         </div>
 
-        <div class="row bg-white ">
+        <div class="row">
 
-<div class="col">
-    <p>{{returnResponse}}</p>
-</div>
+            <div>
+                <p>{{ returnResponse }}</p>
+            </div>
         </div>
     </div>
 
@@ -36,41 +47,38 @@ export default {
 
     },
 
-data(){
-    return {
-        links: 'home/',
-        returnResponse: '',
-    }
-},
+    data() {
+        return {
+            links: 'home/',
+            returnResponse: '',
+        }
+    },
 
     methods: {
         ...mapActions(['GenerateLink']),
 
-        Generate_new_link(link){
-            // this.$store.dispatch('GenerateLink', {old_link: this.link})
+        Generate_new_link(link) {
+            axios.post('api/v1/send_value_for_get_new_link', {
+                link: link,
+            }).then((response) => {
 
-            axios.get('api/v1/send_value_for_get_new_link').then((response) => {
-
-
-
-            });
-        },
-
-        DeleteLink(){
-            axios.get('api/v1/send_value_for_delete_link').then((response) => {
-
-
+                this.returnResponse = 'Ссылка была сгенерированна по новому'
 
             });
         },
 
-        copyToClipBoard(link){
+        copyToClipBoard(link) {
             let Link_1 = this.links;
             let Link_2 = this.link;
             let fullLink = Link_1 + Link_2;
             navigator.clipboard.writeText(fullLink);
             this.returnResponse = 'Ссылка скопирована в буфер обмена'
         },
+
+        feeling_button() {
+            this.returnResponse = ''
+
+        }
     }
 }
 </script>
@@ -83,6 +91,10 @@ data(){
     .otstup {
         margin-right: 20px;
     }
+}
+
+.otstup_row {
+    margin-left: 25%;
 }
 </style>
 

@@ -1,29 +1,10 @@
 <template>
 
-    <CToast :autohide="true">
-        <CToastHeader closeButton>
-            <svg
-                class="rounded me-2"
-                width="20"
-                height="20"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="xMidYMid slice"
-                focusable="false"
-                role="img">
-
-                <rect width="100%" height="100%" fill="#007aff"></rect>
-            </svg>
-
-          <Spiner_1/>
-            <small>7 min ago</small>
-        </CToastHeader>
-        <CToastBody>Hello, world! This is a toast message.</CToastBody>
-    </CToast>
+{{incominData}}
 
 </template>
 
 <script>
-import { CAlert } from '@coreui/bootstrap-vue';
 
 export default {
     components: {
@@ -31,7 +12,7 @@ export default {
     },
     data() {
         return {
-            // currentColor: "",
+            incominData: "",
 
         }
     },
@@ -41,6 +22,18 @@ export default {
     },
 
     methods: {
+
+        editKurerModal(item) {
+            this.incominData = item
+            // this.$bvModal.show('editKurer')
+
+            axios.get('api/v1/send_value_for_get_new_link').then((response) => {
+
+
+
+            });
+
+        },
 
     }
 }

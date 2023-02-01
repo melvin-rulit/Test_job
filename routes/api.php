@@ -11,8 +11,13 @@ Route::group(['prefix' => 'v1',  'as' => 'api.', 'namespace' => 'Api\V1'], funct
     Route::post('send_value_Delete_client', [App\Http\Controllers\Api\V1\UserController::class, 'delete_client_from_DB']);
     Route::get('get_all_clients', [App\Http\Controllers\Api\V1\UserController::class, 'get_all_clients']);
 
-    Route::post('send_value_for_delete_link', [App\Http\Controllers\Api\V1\UserController::class, 'top_delete_link']);
-//    Route::get('send_value_for_get_new_link', [App\Http\Controllers\Api\V1\UserController::class, 'get_all_clients']);
+    Route::post('send_value_for_delete_link', [App\Http\Controllers\Api\V1\UserController::class, 'delete_link']);
+    Route::post('send_value_for_get_new_link', [App\Http\Controllers\Api\V1\UserController::class, 'generate_new_link']);
+
+    Route::post('send_value_for_FEEL_LOCK', [App\Http\Controllers\Api\V1\UserController::class, 'value_feelLock']);
+    Route::post('query_history_for_FEEL_LOCK', [App\Http\Controllers\Api\V1\UserController::class, 'history_feelLock']);
+    Route::post('insert_and_FEEL_LOCK_result', [App\Http\Controllers\Api\V1\UserController::class, 'step1_for_feelLocky_result']);
+
 
 
 });

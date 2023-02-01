@@ -1,17 +1,18 @@
 <template>
 
-    <div v-if="ifThisRouteHome">
-        <HomePageComponent/>
-    </div>
+<!--    <div v-if="ifThisRouteHome">-->
+<!--&lt;!&ndash;        <HomePageComponent/>&ndash;&gt;-->
+<!--    </div>-->
 
-    <div v-if="ifThisRouteRegister">
-        <RegisterComponent/>
-    </div>
+<!--    <div v-if="ifThisRouteRegister">-->
+<!--&lt;!&ndash;        <RegisterComponent/>&ndash;&gt;-->
+<!--    </div>-->
 
-    <div v-if="ifThisRouteAdmin">
-        <MenuComponent/>
-    </div>
+<!--    <div v-if="ifThisRouteAdmin">-->
+<!--        <MenuComponent/>-->
+<!--    </div>-->
 
+    <router-view/>
 
 </template>
 
