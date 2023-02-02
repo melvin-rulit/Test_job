@@ -6,7 +6,7 @@ export default {
     },
 
     getters: {
-        UseLink(state){
+        UseNewLink(state){
             return state.new_link
         },
 
@@ -23,10 +23,9 @@ export default {
 
     actions: {
 
-        GenerateLink({commit}, {old_link}) {
+        GenerateLink({commit}, {link}) {
 
-            // axios.get(`api/v1/send_value_for_get_new_link`, {old_link: old_link})
-            axios.get(`api/v1/send_value_for_get_new_link`)
+            axios.post(`api/v1/send_value_for_get_new_link`, {link: link})
                 .then((response) => {
                     commit('getLink', response.data.data)
                 })

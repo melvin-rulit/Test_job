@@ -57,27 +57,12 @@ export default {
     methods: {
         ...mapActions(['GenerateLink']),
 
-        Generate_new_link(link) {
-            axios.post('api/v1/send_value_for_get_new_link', {
-                link: link,
-            }).then((response) => {
-
-                this.returnResponse = 'Ссылка была сгенерированна по новому'
-
-            });
-        },
-
         copyToClipBoard(link) {
             let Link_1 = this.links;
             let Link_2 = this.link;
             let fullLink = Link_1 + Link_2;
             navigator.clipboard.writeText(fullLink);
             this.returnResponse = 'Ссылка скопирована в буфер обмена'
-        },
-
-        feeling_button() {
-            this.returnResponse = ''
-
         }
     }
 }

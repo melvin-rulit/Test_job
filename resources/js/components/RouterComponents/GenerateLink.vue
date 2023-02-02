@@ -23,6 +23,8 @@
 
 <script>
 
+import {mapActions, mapGetters} from "vuex";
+
 export default {
 
     data(){
@@ -32,6 +34,7 @@ export default {
     },
 
     computed: {
+        ...mapGetters(['UseNewLink']),
 
         link() {
             return this.$route.query.link;
@@ -40,20 +43,17 @@ export default {
     },
 
     methods: {
+        ...mapActions(['GenerateLink']),
 
         Generate_link(){
 
+            this.$store.dispatch('GenerateLink', {link: this.link})
 
-            axios.post('api/v1/send_value_for_get_new_link', {
-                link: this.link,
-            }).then((response) => {
+            let Link_1 = this.links;
+            let Link_2 = this.UseNewLink;
+            let fullLink = Link_1 + Link_2;
+            this.$router.push( fullLink);
 
-                let Link_1 = this.links;
-                let Link_2 = response.data;
-                let fullLink = Link_1 + Link_2;
-                this.$router.push( fullLink);
-
-            });
         },
 
     }
