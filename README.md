@@ -50,6 +50,9 @@
     Create a database and setup the database configuration inside .env
     Run php artisan key:generate
     Run php artisan migrate --seed
+
+    Admin panel link (id = 1 in DB) = /home/fhuefhreifyegyrfgtweeuyg
+
     Run npm install
 
 
