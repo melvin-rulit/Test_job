@@ -11,7 +11,6 @@ class FeelLocky extends Model
     protected $fillable = [
         'client_id',
         'feel_locky',
-        'created_at',
     ];
 
     public function client(): \Illuminate\Database\Eloquent\Relations\BelongsTo

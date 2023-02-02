@@ -30,7 +30,6 @@ class Client extends Model
     {
 
         return $this->hasMany(FeelLocky::class);
-//        return $this->hasMany(FeelLocky::class)->latest()->limit(5)->get();
     }
 
 }
