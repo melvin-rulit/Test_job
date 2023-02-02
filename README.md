@@ -58,7 +58,7 @@
 
 | Register page | Home page |
 | ------------ | ------------- |
-|<img src="https://github.com/melvin-rulit/Test/blob/master/screenshot%20project/registr_page.png" width="450">|<img src="https://github.com/melvin-rulit/Test/blob/master/screenshot%20project/home_page.png" width="450"> |
+|<img src="https://github.com/melvin-rulit/Test_job/blob/master/screenshot%20project/registr_page.png" width="450">|<img src="https://github.com/melvin-rulit/Test/blob/master/screenshot%20project/home_page.png" width="450"> |
 
 
 
