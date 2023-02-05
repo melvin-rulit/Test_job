@@ -14,7 +14,7 @@ export default {
 
     mutations: {
 
-        getLink(state, link) {
+        newLink(state, link) {
             state.new_link = link
 
         },
@@ -26,6 +26,14 @@ export default {
         GenerateLink({commit}, {link}) {
 
             axios.post(`api/v1/send_value_for_get_new_link`, {link: link})
+                .then((response) => {
+                    commit('newLink', response.data)
+                })
+        },
+
+        DeleteLink({commit}, {link}) {
+
+            axios.post(`api/v1/send_value_for_delete_link`, {link: link})
                 .then((response) => {
                     commit('getLink', response.data.data)
                 })

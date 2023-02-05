@@ -23,6 +23,8 @@
 
 <script>
 
+import {mapActions} from "vuex";
+
 export default {
 
     data(){
@@ -40,16 +42,15 @@ export default {
     },
 
     methods: {
+        ...mapActions(['DeleteLink']),
 
         Delete_link(){
 
-            axios.post('api/v1/send_value_for_delete_link', {
-                link: this.link,
-            }).then((response) => {
+            this.$store.dispatch('DeleteLink', {link: this.link});
 
-                this.$router.push({ name: 'Register' });
 
-            });
+            this.$router.push({ name: 'Register' });
+
         },
 
     }

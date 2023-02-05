@@ -47,12 +47,25 @@ export default {
 
         Generate_link(){
 
-            this.$store.dispatch('GenerateLink', {link: this.link})
+            // this.$store.dispatch('GenerateLink', {link: this.link})
 
-            let Link_1 = this.links;
-            let Link_2 = this.UseNewLink;
-            let fullLink = Link_1 + Link_2;
-            this.$router.push( fullLink);
+            axios.post(`api/v1/send_value_for_get_new_link`, {link: this.link})
+                .then((response) => {
+
+                    let Link_1 = this.links;
+                    // let Link_2 = this.UseNewLink;
+                    let Link_2 = response.data;
+                    let fullLink = Link_1 + Link_2;
+
+                    setTimeout(() => {
+
+                        this.$router.push(fullLink);
+                    }, 2000)
+
+                })
+
+
+
 
         },
 
